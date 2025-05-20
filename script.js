@@ -9,6 +9,7 @@ const themeBtn = document.getElementById('theme');
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
 let snake, velocity, food, running, loopId, score;
+const stepTime = 500; // ms between moves
 
 function init() {
     snake = [{x: 10, y: 10}];
@@ -30,16 +31,20 @@ function randomFood() {
 function start() {
     if (running) return;
     running = true;
-    loopId = requestAnimationFrame(loop);
+    loop();
 }
 
 function pause() {
     running = !running;
-    if (running) loopId = requestAnimationFrame(loop);
+    if (running) {
+        loop();
+    } else {
+        clearTimeout(loopId);
+    }
 }
 
 function restart() {
-    cancelAnimationFrame(loopId);
+    clearTimeout(loopId);
     init();
     start();
 }
@@ -52,7 +57,7 @@ function loop() {
     if (!running) return;
     update();
     draw();
-    loopId = requestAnimationFrame(loop);
+    loopId = setTimeout(loop, stepTime);
 }
 
 function update() {
