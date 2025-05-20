@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors">
+    <div class="flex flex-col items-center justify-center h-full p-4" id="app">
+        <h1 class="text-3xl font-bold mb-4">Snake Game</h1>
+        <canvas id="game" width="400" height="400" class="border border-gray-300 dark:border-gray-600"></canvas>
+        <div class="mt-4 flex space-x-2">
+            <button id="start" class="px-4 py-2 bg-blue-500 text-white rounded" aria-label="Start game">Start</button>
+            <button id="pause" class="px-4 py-2 bg-yellow-500 text-white rounded" aria-label="Pause game">Pause</button>
+            <button id="restart" class="px-4 py-2 bg-red-500 text-white rounded" aria-label="Restart game">Restart</button>
+            <button id="theme" class="px-4 py-2 bg-gray-500 text-white rounded" aria-label="Toggle dark mode">Theme</button>
+        </div>
+        <div class="mt-2 text-lg">Score: <span id="score">0</span></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
